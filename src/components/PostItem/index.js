@@ -11,12 +11,12 @@ import {
     PostItemWrapper
 } from "./styles" 
 
-const PostItem = ({slug, description, title,category, background, timeRead, date}) => (
+const PostItem = ({slug, description, title,category, background, timeToRead, date}) => (
     <PostItemLink to={slug}>
         <PostItemWrapper>
             <PostItemTag background={background}> {category} </PostItemTag>
             <PostItemInfo>
-                <PostItemDate> {date} ° {timeRead} min de leitura </PostItemDate>
+                <PostItemDate> {date} · {timeToRead} min de leitura </PostItemDate>
                 <PostItemTitle>{title}</PostItemTitle>
                 <PostItemDescription>
                     {description}
