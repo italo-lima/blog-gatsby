@@ -13,6 +13,9 @@ const IndexPage = () => {
         allMarkdownRemark {
           edges {
             node {
+              fields {
+                slug
+              }
               timeToRead
               frontmatter {
                 background
@@ -31,9 +34,13 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      {edges.map(({node:{frontmatter, timeToRead}}) => (
+      {edges.map(({node:{
+        frontmatter, 
+        timeToRead, 
+        fields
+      }}) => (
           <PostItem 
-            slug="/about/"
+            slug={fields.slug}
             category={frontmatter.category}
             date={frontmatter.date}
             timeToRead={timeToRead}
