@@ -10,20 +10,25 @@ const BlogPost = props => {
     const postList = props.data.allMarkdownRemark.edges
 
     const {currentPage, numPages} = props.pageContext
-    const firstPage = currentPage == 1
-    const lastPage = currentPage == numPages
-    const prevPage = currentPage - 1 == 1 ? '/' : `/page/${currentPage - 1}`
+    const firstPage = currentPage === 1
+    const lastPage = currentPage === numPages
+    const prevPage = currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`
     const nextPage = `/page/${currentPage + 1}`
+
+    console.log(currentPage, numPages, firstPage, lastPage, prevPage, nextPage)
 
     return (
         <Layout>
             <SEO title="Home" />
-            {postList.map(({node:{
+            {postList && 
+              <>
+              {postList.map(({node:{
                 frontmatter, 
                 timeToRead, 
-                fields
-            }}) => (
-                <PostItem 
+                fields,
+                id
+              }}) => (
+                <PostItem key={id}
                     background={frontmatter.background}
                     slug={fields.slug}
                     category={frontmatter.category}
@@ -33,13 +38,17 @@ const BlogPost = props => {
                     description={frontmatter.description}
                 />
             ))}
+
             <Pagination 
                 isFirst={firstPage} 
                 isLast={lastPage} 
                 currentPage={currentPage} 
                 numPages={numPages} 
                 prevPage={prevPage} 
-                nextPage={nextPage} />
+                nextPage={nextPage} 
+              />
+              </>
+          }
         </Layout>
     )
 }
@@ -63,6 +72,7 @@ export const query = graphql`
               description
               title
             }
+            id
           }
         }
       }

@@ -6,6 +6,7 @@ import {PaginationWrapper} from "./styles"
 
 const Pagination = ({isFirst, isLast, currentPage, numPages, prevPage, nextPage}) => (
     <PaginationWrapper>
+        {console.log("pa",isLast)}
         {!isFirst && <Link to={prevPage}> Página Anterior </Link>}
 
         <p>{currentPage} de {numPages}</p>
@@ -16,7 +17,7 @@ const Pagination = ({isFirst, isLast, currentPage, numPages, prevPage, nextPage}
 
 Pagination.propTypes = {
     isFirst: propTypes.bool.isRequired,
-    islast: propTypes.bool.isRequired,
+    isLast: propTypes.bool.isRequired,
     currentPage: propTypes.number.isRequired,
     numPages: propTypes.number.isRequired,
     prevPage: propTypes.string,
