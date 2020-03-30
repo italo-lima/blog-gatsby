@@ -9,10 +9,10 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `uploads`,
         path: `${__dirname}/static/assets/img`,
+        name: 'uploads',
       },
     },
     {
@@ -34,22 +34,22 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-relative-images-v2",
+            resolve: `gatsby-remark-relative-images`,
             options: {
-              name: "uploads",
-            },
+							name: "uploads"
+						}
           },
           {
-            resolve: "gatsby-remark-images",
+            resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 960,
-              linkImagesToOriginal: false, //evitar abrir imagem externamente
+              linkImagesToOriginal: false
             },
           },
           `gatsby-remark-lazy-load`,
         ],
-      }
-    }
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
