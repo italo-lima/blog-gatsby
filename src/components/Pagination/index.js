@@ -6,7 +6,7 @@ import {PaginationWrapper} from "./styles"
 
 const Pagination = ({isFirst, isLast, currentPage, numPages, prevPage, nextPage}) => (
     <PaginationWrapper>
-        {console.log("pa",isLast)}
+        
         {!isFirst && <Link to={prevPage}> Página Anterior </Link>}
 
         <p>{currentPage} de {numPages}</p>

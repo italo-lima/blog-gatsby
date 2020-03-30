@@ -19,35 +19,53 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const result = await graphql(`
-      query PostList {
-        allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              timeToRead
-              frontmatter {
-                background
-                category
-                date(formatString: "DD [de] MMMM [de] YYYY", locale: "pt-br")
-                description
-                title
-              }
+    query PostList {
+      allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            timeToRead
+            frontmatter {
+              background
+              category
+              date(formatString: "DD [de] MMMM [de] YYYY", locale: "pt-br")
+              description
+              title
+            }
+          }
+          next {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
-      }`
+      }
+    }`
     )
 
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach(({ node }) => {
+    posts.forEach(({ node, next, previous }) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`./src/templates/blog-post.js`),
         context: {
           slug: node.fields.slug,
+          previousPost: next,
+          nextPost: previous
         },
       })
     })
