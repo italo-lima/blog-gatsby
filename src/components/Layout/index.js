@@ -8,7 +8,7 @@ import {LayoutMain, LayoutWrapper} from "./styles"
 import GlobalStyle from "../../styles/global"
 
 const Layout = ({ children }) => {
-  
+
   return (
     <LayoutWrapper>
       <GlobalStyle />

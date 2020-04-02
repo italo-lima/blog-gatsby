@@ -33,6 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
               date(formatString: "DD [de] MMMM [de] YYYY", locale: "pt-br")
               description
               title
+              image
             }
           }
           next {

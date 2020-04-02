@@ -4,10 +4,9 @@ import {MenuBarGroup, MenuBarItem, MenuBarLink, MenuBarWrapper} from "./styles"
 import { Home } from "@styled-icons/boxicons-solid/Home"
 import { SearchAlt as Search } from "@styled-icons/boxicons-regular/SearchAlt"
 import { UpArrowAlt as Arrow } from "@styled-icons/boxicons-regular/UpArrowAlt"
-import { Bulb as Light } from "@styled-icons/boxicons-regular/Bulb"
 import { Grid } from "@styled-icons/boxicons-solid/Grid"
 
-const MenuBar = () => (
+const MenuBar = ({changeBackground}) => (
     <MenuBarWrapper>
         {/* Group top */}
         <MenuBarGroup>

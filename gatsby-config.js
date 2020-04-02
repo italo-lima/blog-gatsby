@@ -8,6 +8,7 @@ module.exports = {
     description: `A blog about frontend development and other cool stuff.`,
     position: 'FrontEnd Developer',
     author: `Ítalo Lima`,
+    siteUrl: 'https://italolima.com'
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -80,6 +81,7 @@ module.exports = {
         //icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

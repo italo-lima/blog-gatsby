@@ -4,6 +4,7 @@ title: Fifth Post
 description: Suco de cevadiss deixa as pessoas mais interessantis. 
 category: Misc
 background: "#bb99ff"
+image: "/assets/img/desert.jpg"
 ---
 
 # Lorem ipsum
