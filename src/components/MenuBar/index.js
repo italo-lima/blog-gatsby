@@ -22,7 +22,6 @@ const MenuBar = () => (
 
         {/* Group bottom */}
         <MenuBarGroup>
-            <MenuBarItem title='Mudar tema'> <Light /> </MenuBarItem>
             <MenuBarItem title='Mudar visualização'> <Grid /> </MenuBarItem>
             <MenuBarItem title='Ir para o top'> <Arrow /> </MenuBarItem>
         </MenuBarGroup>
